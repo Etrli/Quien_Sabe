@@ -1,142 +1,207 @@
 /* Importar una fuente bonita desde Google Fonts (opcional) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Estilos generales del cuerpo de la página */
+/* style.css */
+
+/* Importar una fuente bonita desde Google Fonts (opcional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* --- Definición de Variables de Color --- */
+:root {
+    /* Modo Claro (Default) */
+    --primary-color: #00BFFF; /* Celeste principal */
+    --background-color: #f0f2f5; /* Fondo claro y suave */
+    --form-background: #ffffff;
+    --text-color: #333;
+    --label-color: #555;
+    --border-color: #ccc;
+    --link-color: #3a3a7e;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --switch-bg: #ccc;
+    --particles-color: #3a3a7e;
+    --particles-link-color: #3a3a7e;
+}
+
+body.dark-mode {
+    /* Modo Oscuro */
+    --primary-color: #00BFFF; /* Mantenemos el celeste para acentos */
+    --background-color: #121212; /* Fondo oscuro principal */
+    --form-background: #1e1e2f; /* Un azul muy oscuro para el formulario */
+    --text-color: #f0f0f0; /* Texto claro */
+    --label-color: #a0a0a0; /* Etiquetas un poco más tenues */
+    --border-color: #444; /* Bordes más oscuros */
+    --link-color: #00BFFF; /* El celeste resalta bien en modo oscuro */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --switch-bg: #555;
+    --particles-color: #00BFFF;
+    --particles-link-color: #00BFFF;
+}
+
+/* --- Estilos Generales --- */
 body {
+    cursor: wait;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1c1c3c, #3a3a7e); /* Fondo degradado oscuro y elegante */
+    background-color: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-    color: #333;
-        /* ... otros estilos del body ... */
-    position: relative; /* Necesario para el z-index del login-container */
-    background: #1c1c3c; /* Un color de fondo sólido de respaldo */
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
 }
-
-/* Contenedor principal del formulario */
-.login-container {
-    background-color: white;
-    padding: 100px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    /* Efecto de transición para una aparición suave */
-    animation: fadeIn 0.5s ease-in-out;
-    /* ... tus estilos del login-container ... */
-    position: relative; /* Para que esté encima de las partículas */
-    z-index: 10;
-    /* Quitar el background degradado del contenedor para que se vea el fondo de partículas */
-    background-color: rgba(255, 255, 255, 0.9); /* Un blanco semi-transparente para que se vea el fondo */
-}
-
-/* ... tus estilos CSS anteriores ... */
 
 #particles-js {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Para que esté detrás del contenido */
-}
-/* Estilo del Logo "¿Quien Sabe?" */
-.logo {
-    font-size: 3em; /* Tamaño de fuente grande */
-    font-weight: 600; /* Letra seminegrita */
-    color: #00BFFF;   /* Color celeste (DeepSkyBlue) */
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de texto sutil */
+    z-index: 0;
 }
 
-/* Grupos de input (label + campo de texto) */
+.login-container {
+    position: relative;
+    z-index: 1;
+    background-color: var(--form-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 600px;
+    height:450px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.logo {
+    display: flex;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Formulario --- */
 .input-group {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: #555;
+    color: var(--label-color);
+    transition: color 0.3s ease;
 }
 
 .input-group input {
     width: 100%;
-    padding: 20px 25px;
-    border: 3px solid #ccc;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
-/* Efecto visual cuando se hace clic en un campo de texto */
 .input-group input:focus {
     outline: none;
-    border-color: #00BFFF;
+    border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(0, 191, 255, 0.3);
 }
 
-/* Estilo del botón de Iniciar Sesión */
 .btn-login {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 8px;
-    background-color: #00BFFF;
+    background-color: var(--primary-color);
     color: white;
-    font-size: 1.8em;
+    font-size: 1.1em;
     font-weight: 600;
-    cursor: pointer; /* Cambia el cursor a una manito */
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
-#password{
-    text-align:left;
-    font-size: 18px;
+
+.btn-login:hover {
+    color: white;
+    background-color: #009acd;
+    transition: 0.4s;
 }
 #username{
-    text-align: left;
-    font-size: 18px;
+    margin: 15px;
+}
+#password{
+    margin: 15px;
 }
 
-/* Efecto al pasar el ratón sobre el botón */
-.btn-login:hover {
-    background-color: #009acd;
-    transform: translateY(-2px); /* Eleva ligeramente el botón */
-    color: black;
-    transition: 1s;
-}
-
-/* Contenedor de las opciones "Registrarse" y "Olvidé contraseña" */
 .options {
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
-    font-size: 1.2em;
+    font-size: 0.9em;
 }
 
 .options a {
-    color: #3a3a7e;
+    color: var(--link-color);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .options a:hover {
-    color: #00BFFF;
     text-decoration: underline;
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* --- Estilos del Interruptor de Tema (Toggle Switch) --- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Lo alinea a la derecha */
+    margin-bottom: 15px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg);
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
 }

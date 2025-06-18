@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="assets/css/perfilbasic.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-avatar">
+                <img src="https://via.placeholder.com/120/4facfe/ffffff?text=👤" alt="Avatar" id="avatar-img">
+                <div class="avatar-upload">
+                    <input type="file" id="avatar-input" accept="image/*">
+                    <label for="avatar-input" class="upload-btn">📷</label>
+                </div>
+            </div>
+            <h1>Editar Mi Perfil</h1>
+            <p>Personaliza tu información y experiencia</p>
+        </header>
+
+        <div class="content">
+            <!-- Información Personal -->
+            <section class="section">
+                <h2>🔹 Información Personal</h2>
+                <form id="personal-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+54 11 1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pais">País</label>
+                            <select id="pais" name="pais">
+                                <option value="">Selecciona tu país</option>
+                                <option value="AR">Argentina</option>
+                                <option value="MX">México</option>
+                                <option value="ES">España</option>
+                                <option value="CO">Colombia</option>
+                                <option value="CL">Chile</option>
+                                <option value="PE">Perú</option>
+                                <option value="VE">Venezuela</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Biografía</label>
+                        <textarea id="bio" name="bio" rows="4" placeholder="Cuéntanos algo sobre ti..."></textarea>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Preferencias de Experiencia -->
+            <section class="section">
+                <h2>⚙️ Personalización</h2>
+                <form id="preferences-form">
+                    <div class="form-group">
+                        <label for="tema">Tema Visual</label>
+                        <select id="tema" name="tema">
+                            <option value="claro">Tema Claro</option>
+                            <option value="oscuro">Tema Oscuro</option>
+                            <option value="auto">Automático</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idioma">Idioma</label>
+                        <select id="idioma" name="idioma">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="pt">Português</option>
+                            <option value="fr">Français</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zona-horaria">Zona Horaria</label>
+                        <select id="zona-horaria" name="zona-horaria">
+                            <option value="America/Argentina/Buenos_Aires">Buenos Aires (GMT-3)</option>
+                            <option value="America/Mexico_City">Ciudad de México (GMT-6)</option>
+                            <option value="Europe/Madrid">Madrid (GMT+1)</option>
+                            <option value="America/Bogota">Bogotá (GMT-5)</option>
+                        </select>
+                    </div>
+
+                    <div class="preferences-grid">
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="notificaciones-email">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Notificaciones por Email</h4>
+                                <p>Recibir actualizaciones importantes</p>
+                            </div>
+                        </div>
+
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="notificaciones-push">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Notificaciones Push</h4>
+                                <p>Alertas en tiempo real</p>
+                            </div>
+                        </div>
+
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="perfil-publico">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Perfil Público</h4>
+                                <p>Permitir que otros vean tu perfil</p>
+                            </div>
+                        </div>
+
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="modo-desarrollador">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Modo Desarrollador</h4>
+                                <p>Opciones avanzadas y debugging</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Seguridad -->
+            <section class="section">
+                <h2>🔒 Seguridad</h2>
+                <form id="security-form">
+                    <div class="form-group">
+                        <label for="password-actual">Contraseña Actual</label>
+                        <input type="password" id="password-actual" name="password-actual" placeholder="Contraseña actual">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password-nueva">Nueva Contraseña</label>
+                            <input type="password" id="password-nueva" name="password-nueva" placeholder="Nueva contraseña">
+                        </div>
+                        <div class="form-group">
+                            <label for="password-confirmar">Confirmar Contraseña</label>
+                            <input type="password" id="password-confirmar" name="password-confirmar" placeholder="Confirmar contraseña">
+                        </div>
+                    </div>
+
+                    <div class="security-options">
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="two-factor">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Autenticación de Dos Factores</h4>
+                                <p>Añade una capa extra de seguridad</p>
+                            </div>
+                        </div>
+
+                        <div class="preference-item">
+                            <label class="switch">
+                                <input type="checkbox" id="login-alerts">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Alertas de Inicio de Sesión</h4>
+                                <p>Notificar sobre accesos no reconocidos</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Vista Previa -->
+            <section class="section preview-section">
+                <h2>👁️ Vista Previa del Perfil</h2>
+                <div class="profile-preview">
+                    <div class="preview-header">
+                        <img src="https://via.placeholder.com/80/4facfe/ffffff?text=👤" alt="Preview Avatar" id="preview-avatar">
+                        <div class="preview-info">
+                            <h3 id="preview-name">Tu Nombre</h3>
+                            <p id="preview-location">Tu Ciudad, País</p>
+                            <p id="preview-bio">Tu biografía aparecerá aquí...</p>
+                        </div>
+                    </div>
+                    <div class="preview-stats">
+                        <div class="stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Seguidores</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Siguiendo</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="actions">
+            <button type="button" class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="btn-guardar">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        <span id="notification-text"></span>
+        <button id="notification-close">×</button>
+    </div>
+
+    <script src="assets/JS/perfilbasic.js"></script>
+</body>
+</html>
